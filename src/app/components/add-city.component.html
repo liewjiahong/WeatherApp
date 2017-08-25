@@ -1,0 +1,75 @@
+<div  class="row">
+  <form novalidate (ngSubmit)="addCityList(weatherForm.value.cityName)" #weatherForm="ngForm">
+  <div class="form-group">
+    <div class="col-md-12">
+      <div class="col-md-2">
+        <label for="InputCity" >Name of City:</label>
+      </div>
+      <div class="col-md-6">
+        <input type="text" name="cityName" id="cityName" class="form-control" ngModel required placeholder="Enter a city name">
+      </div>
+      <div class="col-md-4">
+        <button type="submit" [disabled]="!weatherForm.valid" class="btn btn-primary">
+          Add City to List
+        </button>
+      </div>     
+    </div>
+  </div>
+  </form> 
+</div>
+
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+<div class="col-md-12">&nbsp;</div>
+
+<div class="col-md-3">
+  <div class="panel panel-default">     
+    <div class="panel-body">
+        <div class="row" *ngIf="cityList.length == 0 ">
+            <h4>No city selected.</h4>
+        </div>
+        <div class="row" *ngIf="cityList.length > 0" >
+          <h3>List of Cities</h3>
+          <p>Click on City to display weather information</p>
+        <ul class="list-group">
+           <li class="list-group-item" *ngFor="let city of cityList" (click)="getWeather(city)" style="font-size:20px" >
+             {{ city }}
+           </li>
+        </ul>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="col-md-9">
+    <div class="col-md-12" >
+        <div class="row" *ngFor="let w of weatherOfCities ">
+          <div class="col-md-12" >
+            <div class="col-md-12 pull-left"  >
+              <h2>{{city}}</h2>
+            </div>
+            <div class = "col-md-2">
+              &nbsp;
+            </div>
+            <div class ="col-md-4"style="font-size:150px">
+                <h1>{{temperature}}<sup>&deg;C</sup></h1>
+                <h3>{{w.main}} - {{w.description}}</h3>
+                <h4>Humidity: {{humidity}}% - Wind: {{windspeed}} km/h</h4>
+            </div>
+            <div class="col-md-3" >
+              <img src="http://openweathermap.org/img/w/{{w.icon}}.png" alt="" height="300">
+            </div>
+            <div class = "col-md-3">
+                &nbsp;
+              </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+

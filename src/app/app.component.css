@@ -1,0 +1,11 @@
+.navbar-default {
+    background-color:skyblue;
+    background-image: none;
+    background-repeat: no-repeat;
+  }
+  
+  h3 {
+    color: snow;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px
+  }
